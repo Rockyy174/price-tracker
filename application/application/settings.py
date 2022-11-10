@@ -1,4 +1,3 @@
-import json
 from pathlib import Path
 
 
@@ -100,13 +99,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 # CELERY
-with open('config.json') as config_file:
-    config = json.load(config_file)
-
 # SQS
 # https://docs.celeryq.dev/en/stable/getting-started/backends-and-brokers/sqs.html#broker-sqs
 
-# CELERY_BROKER_URL = "sqs://%s:%s@" % (config.get('SQS_ACCESS_KEY'), config.get("SQS_SECRET_KEY"))
+# CELERY_BROKER_URL = "sqs://%s:%s@" % ('SQS-user-access-key', 'SQS-user-secret-key')
 # CELERY_TASK_DEFAULT_QUEUE = 'web-scraping-queue'
 # CELERY_BROKER_TRANSPORT_OPTIONS = {
 #     'region': 'eu-central-1',
